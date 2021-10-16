@@ -27,30 +27,19 @@ def must_none(x):
     return x is None
 
 
+# 修改自己需要的内容
+
 files = [
     {
-        'case': '国考.xlsx',
-        'skip_rows': [1, 2],
-        'merge_row': 2,
-        'keys_row': 2,
+        'case': '国考.xlsx',  # 查找文件路径
+        'skip_rows': [1, 2],  # 需要跳过的行号
+        'merge_row': 2,  # 存在 key 但被合并的行好
+        'keys_row': 2,  # key 所在行号
         'exports': [
             {
-                'file_name': "A-国考.xlsx",
+                'file_name': "B-国考.xlsx",  # 导出文件路径
                 'filters': {
-                    '专业': lambda x: have(x, '新闻', '传播', '金融', '经济', '文学', '不限') and not_have(x, '语言文学'),
-                    '学历': lambda x: have(x, '本科', '大专及以上'),
-                    '学位': lambda x: x != '硕士',
-                    '政治面貌': lambda x: have(x, '不限'),
-                    '服务基层项目工作经历': lambda x: have(x, '无限制', '不限'),
-                    '基层工作最低年限': lambda x: have(x, '无限制', '不限'),
-                    '工作地点': lambda x: have(x, '广东'),
-                    '落户地点': lambda x: have(x, '广东'),
-                    '备注': lambda x: not_have(x, '应届', '男性', '至少具有注册会计师'),
-                }
-            },
-            {
-                'file_name': "B-国考.xlsx",
-                'filters': {
+                    # 以下就是筛选条件
                     '专业': lambda x: have(x, '机械', '工学', '不限'),
                     '学历': lambda x: have(x, '本科', '大专及以上'),
                     '学位': lambda x: x != '硕士',
@@ -62,21 +51,6 @@ files = [
                     '备注': lambda x: not_have(x, '女性', '至少具有注册会计师', '大学英语'),
                 }
             },
-
-            {
-                'file_name': "C-国考.xlsx",
-                'filters': {
-                    '专业': lambda x: have(x, '信息', '电子', '工学', '不限') and not_have(x, '电子商务'),
-                    '学历': lambda x: have(x, '本科', '大专及以上'),
-                    '学位': lambda x: x != '硕士',
-                    '政治面貌': lambda x: have(x, '不限'),
-                    '服务基层项目工作经历': lambda x: have(x, '无限制', '不限'),
-                    '基层工作最低年限': lambda x: have(x, '无限制', '不限'),
-                    '工作地点': lambda x: have(x, '广东'),
-                    '落户地点': lambda x: have(x, '广东'),
-                    '备注': lambda x: not_have(x, '应届', '女性', '至少具有注册会计师', '大学英语')
-                }
-            },
         ]
     },
     {
@@ -86,17 +60,6 @@ files = [
         'keys_row': 3,
         'exports': [
             {
-                'file_name': "A-深圳事业单位.xlsx",
-                'filters': {
-                    '专业': lambda x: have(x, '新闻', '传播', '金融', '经济', '文学', '本科：不限') and not_have(x, '语言文学', '水文学'),
-                    '最低专业技术资格': lambda x: must_none(x),
-                    '学历': lambda x: have(x, '本科'),
-                    '学位': lambda x: have(x, '学士'),
-                    '与岗位有关的其它条件': lambda x: not_have(x, '男性', '中共党员', '证', '资格', '；2年以上'),
-                    '笔试类别': lambda x: not_have(x, '毕业生'),
-                }
-            },
-            {
                 'file_name': "B-深圳事业单位.xlsx",
                 'filters': {
                     '专业': lambda x: have(x, '机械', '工学', '本科：不限'),
@@ -105,17 +68,6 @@ files = [
                     '学位': lambda x: have(x, '学士'),
                     '与岗位有关的其它条件': lambda x: not_have(x, '女性', '中共党员', '证', '资格'),
                     '笔试类别': lambda x: not_have(x, '社会人员'),
-                }
-            },
-            {
-                'file_name': "C-深圳事业单位.xlsx",
-                'filters': {
-                    '专业': lambda x: have(x, '信息', '电子', '工学', '本科：不限') and not_have(x, '电子商务'),
-                    '最低专业技术资格': lambda x: must_none(x),
-                    '学历': lambda x: have(x, '本科'),
-                    '学位': lambda x: have(x, '学士'),
-                    '与岗位有关的其它条件': lambda x: not_have(x, '女性', '中共党员', '证', '资格'),
-                    '笔试类别': lambda x: not_have(x, '毕业生'),
                 }
             },
         ]
