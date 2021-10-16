@@ -1,6 +1,11 @@
-# py_excel_filter
+#国考、事业单位职位筛选并导出
 
-国考、事业单位职位筛选并导出
+脚本基于 `Python3`
+首先不太会用 `Excel` 其次 `linux` 里的 `onlyoffice` 有点简陋 自己琢磨了个脚本 希望能助大家上岸。
+
+[Gitee项目地址](https://gitee.com/danyow/py_excel_filter)
+[Github项目地址](https://github.com/danyow/py_excel_filter)
+
 
 # 使用方法
 
