@@ -6,7 +6,7 @@
 
 安装 `openpyxl`
 
-# 修改 `main.py` 里面的 `files
+# 修改 `main.py` 里面的 `files`
 
 ```python
 
